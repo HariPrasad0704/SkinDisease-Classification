@@ -6,14 +6,14 @@ from PIL import Image
 from numpy import number
 from tensorflow.python.keras.models import load_model
 from flask import Flask , render_template  , request , send_file,redirect,url_for,session
-from keras.preprocessing.image import load_img , img_to_array
+from tensorflow.keras.preprocessing.image import load_img , img_to_array
 from keras.applications.mobilenet import preprocess_input, decode_predictions
 from keras.models import model_from_json
 from keras.models import load_model
 from mydb import connection as db
 
 app = Flask(__name__)
-j_file = open(r'C:\Users\dinesh\Desktop\New folder (2)\skin-disease-classification-main\envs\skin-disease-classification-main\model.json', 'r')
+j_file = open('model.json', 'r')
 loaded_json_model = j_file.read()
 j_file.close()
 model = model_from_json(loaded_json_model)
@@ -76,10 +76,10 @@ def login():
         result_dict = db.login(name,password)
         msg = 'Invalid Username / Password'
         if result_dict != False:
-            session["name"] = request.form["username"]
-            msg = session["name"]
-            print(msg)
-            return redirect(url_for('/index'))
+            # session["name"] = request.form["username"]
+            # msg = session["name"]
+            # print(msg)
+            return redirect('/index')
         return render_template('login.html', msg = msg)
 
     else:
