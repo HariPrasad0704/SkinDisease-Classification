@@ -5,7 +5,9 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+body{
+  background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fhealth.clevelandclinic.org%2Fpsoriasis-vs-ringworm%2F&psig=AOvVaw1GEmdrb8jd3I3ck6kHURHl&ust=1668749257769000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCMjzr8e9tPsCFQAAAAAdAAAAABAI');
+}
 body,
 input {
   font-family: "Poppins", sans-serif;
