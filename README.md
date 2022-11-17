@@ -45,30 +45,3 @@ Dermatofibroma is a benign skin lesion regarded as either a benign proliferation
 
 
 [Total images = 10015]
-
-
-# Skin Disease classification Implmented Using Flask
-
-In SkinDiseaseClassification.ipynb model is created using CNN and MobileNet and then it's weights used in web apllication which implemented using flask in app.py 
-
-# Instructions To Use
-
----> To run this project, accumulate this full repository in a directory .
-
----> Open a  command prompt in the above directory and write commands as follows:
-
-     1: mkdir envs
-     
-     2: cd envs
-     
-     3: python -m virtualenv name      // here name is environment name 
-     
-     4: name\Scripts\activate          // activate name enviroment
-     
-     5: cd ..
-     
-     6: python app.py                  
-     
----> open this link http://127.0.0.1:5000/ in your browser    
-     
-      
