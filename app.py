@@ -26,13 +26,13 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1] in ALLOWED_EXT
 
 classes = [
-   'Erythema Multiforme',
-   'Erythema Nodosum',
+   'Actine Keratoses',
+   'Basal Cell Carcinoma',
    'Benign Keratosis',
    'Erythema Psoriasis',
    'Melanoma',
-   'Erythema Marginatum',
-   'Erythema Toxicum'
+   'Melanocytic Nevi',
+   'vascular Naevus'
 
 ]
 
