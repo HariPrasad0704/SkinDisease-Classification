@@ -146,16 +146,9 @@ def contactInfo():
         msg1 = 'Success'
         return render_template('contact.html', msg = msg1) 
     else:
-        return render_template('register.html', msg = msg)
-# @app.route('/login/')
-# def login():
-#     return render_template("login.html")
+        msg2 = 'Please Enter Required Data'
+        return render_template('contact.html', msg = msg2)
 
-# more changes to be made in contact
-
-# @app.route('/about1/')
-# def about():
-#     return "this is about page"
 
 
 
