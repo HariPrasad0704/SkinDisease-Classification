@@ -11,6 +11,7 @@ from keras.applications.mobilenet import preprocess_input, decode_predictions
 from keras.models import model_from_json
 from keras.models import load_model
 from mydb import connection as db
+import ibm_db,ibm_db_dbi
 
 app = Flask(__name__)
 j_file = open('model.json', 'r')
@@ -36,6 +37,24 @@ classes = [
 
 ]
 
+conn = ibm_db.connect("DATABASE=bludb;HOSTNAME=b1bc1829-6f45-4cd4-bef4-10cf081900bf.c1ogj3sd0tgtu0lqde00.databases.appdomain.cloud;PORT=32304;PROTOCOL=TCPIP;UID=jxc07622;PWD=f2QKpEo3wHhq0qGV;Security=SSL;SSLSecurityCertificate=DigiCertGlobalRootCA.crt", "", "")
+connection = ibm_db_dbi.Connection(conn)
+cursor = connection.cursor()
+
+cursor.execute('''CREATE TABLE IF NOT EXISTS user (
+	username VARCHAR(50) NOT NULL,  
+	gmail VARCHAR(50) NOT NULL, 
+    number VARCHAR(50) NOT NULL,
+    password VARCHAR(50) NOT NULL
+    )''')
+
+cursor.execute('''CREATE TABLE IF NOT EXISTS contactInfo (
+	firstName VARCHAR(50) NOT NULL,  
+	lastName VARCHAR(50) NOT NULL, 
+    email VARCHAR(50) NOT NULL,
+    number VARCHAR(50) NOT NULL,
+    message VARCHAR(250) NOT NULL
+    )''') 
 
 def predict(filename , model):
     img = load_img(filename , target_size = (224, 224))
@@ -67,6 +86,7 @@ def predict(filename , model):
 def log():
     return render_template('login.html')
 
+
 @app.route('/login', methods =['GET', 'POST'])
 def login():
     msg = ''
@@ -91,9 +111,10 @@ def register():
     if request.method == 'POST':
         name = request.form["username"]
         email = request.form["email"]
+        number = request.form["number"]
         password = request.form["password"]
         print(name,email,password)
-        db.register(name,email,password)
+        db.register(name,email,number,password)
         return render_template('login.html', msg = msg) 
     else:
         return render_template('register.html', msg = msg)
@@ -112,6 +133,20 @@ def about():
 def contact():
     return render_template("contact.html")
 
+@app.route('/contactInfo',methods=['GET', 'POST'])
+def contactInfo():
+    if request.method == 'POST':
+        fName = request.form["firstName"]
+        lName = request.form["lastName"]
+        email = request.form["email"]
+        number = request.form["number"]
+        msg = request.form["msg"]
+        print(fName,lName,email,number,msg)
+        db.contactInfo(fName,lName,email,number,msg)
+        msg1 = 'Success'
+        return render_template('contact.html', msg = msg1) 
+    else:
+        return render_template('register.html', msg = msg)
 # @app.route('/login/')
 # def login():
 #     return render_template("login.html")

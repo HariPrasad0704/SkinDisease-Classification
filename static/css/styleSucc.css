@@ -1,11 +1,8 @@
-
-
 body
 {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color:black;
 }
 
 
@@ -18,9 +15,10 @@ html {
 }
 
 .second-main{
-    background-image:black,url('b4.jpg');
+    background-image:linear-gradient(rgba(0, 0, 0, 0.71),rgba(0, 0, 0, 0.7)),url('b4.jpg');
     background-size: cover;
-    background-position: center;  
+    background-position: center;
+    height: 100vh;   
 }
 
 

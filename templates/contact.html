@@ -32,22 +32,22 @@
 
 
 	
-
+	<div class="msg" style="text-align: center; color: rgb(46, 149, 97); background-color: rgb(41, 221, 131);">{{ msg }}</div>
 
 	<div class="container-contact100">
 		<div class="wrap-contact100">
-			<form class="contact100-form validate-form">
+			<form class="contact100-form validate-form" method="post" action="/contactInfo">
 				<span class="contact100-form-title">
 					Send Us A Message
 				</span>
 
 				<label class="label-input100" for="first-name">Tell us your name *</label>
 				<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Type first name">
-					<input id="first-name" class="input100" type="text" name="first-name" placeholder="First name">
+					<input id="first-name" class="input100" type="text" name="firstName" placeholder="First name">
 					<span class="focus-input100"></span>
 				</div>
 				<div class="wrap-input100 rs2-wrap-input100 validate-input" data-validate="Type last name">
-					<input class="input100" type="text" name="last-name" placeholder="Last name">
+					<input class="input100" type="text" name="lastName" placeholder="Last name">
 					<span class="focus-input100"></span>
 				</div>
 
@@ -59,13 +59,13 @@
 
 				<label class="label-input100" for="phone">Enter phone number</label>
 				<div class="wrap-input100">
-					<input id="phone" class="input100" type="text" name="phone" placeholder="Eg. +91 00 0000 0000">
+					<input id="phone" class="input100" type="text" name="number" placeholder="Eg. +91 00 0000 0000">
 					<span class="focus-input100"></span>
 				</div>
 
 				<label class="label-input100" for="message">Message *</label>
 				<div class="wrap-input100 validate-input" data-validate = "Message is required">
-					<textarea id="message" class="input100" name="message" placeholder="Write us a message"></textarea>
+					<textarea id="message" class="input100" name="msg" placeholder="Write us a message"></textarea>
 					<span class="focus-input100"></span>
 				</div>
 
